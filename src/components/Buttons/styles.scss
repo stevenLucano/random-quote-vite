@@ -1,0 +1,35 @@
+:root {
+    --color-btn: #fff;
+    --color-btn-hover: #fff;
+}
+
+.buttons {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn {
+    height: 40px;
+    transition: 2s;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--color-btn);
+    color: aliceblue;
+    text-transform: capitalize;
+    padding: 12px;
+    user-select: none;
+
+    &-hover:hover{
+        background-color: var(--color-btn-hover);
+        transition: 0.5s;
+        cursor: pointer;
+    }
+}
+
+@media (max-width: 620px){
+    .btn {
+        height: 30px;
+        padding: 7px;
+    }
+}

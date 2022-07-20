@@ -1,0 +1,51 @@
+#quote-box {
+    background: #ffffff;
+    height: auto;
+    width: 550px;
+    padding: 40px;
+    font-family: 'Raleway', sans-serif;
+    transition: 1s;
+    border-radius: 3px;
+    box-shadow: 0px 20px 40px 5px rgba(0, 0, 0, 0.123);
+}
+
+.txt {
+    opacity: 1;
+    transition: 0.5s;
+
+    &-quote::before{
+        transform: scale(1.5);
+        margin-right: 10px;
+    }
+
+    &#text{
+        font-size: 28px;
+    }
+
+    &#author {
+        font-size: 16px;
+        text-align: end;
+    }
+}
+
+@media (max-width: 620px){
+    #quote-box {
+        width: 86vw;
+        padding: 5%;
+    }
+    .txt{
+        &-quote::before{
+            transform: scale(1.2);
+            margin-right: 4px;
+        }
+
+        &#text{
+            font-size: 18px;
+        }
+
+        &#author {
+            font-size: 12px;
+        }
+
+    }
+}
