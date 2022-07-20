@@ -3,7 +3,7 @@ import "./styles.scss";
 
 const Buttons = ({ color, fncColor }) => {
   window.addEventListener("resize", () => {
-    changeHover(window.innerWidth);
+    changeHover(window.innerWidth, screen.width);
   });
 
   document.documentElement.style.setProperty(
@@ -15,10 +15,10 @@ const Buttons = ({ color, fncColor }) => {
     `hsl(${color}, 60%, 80%)`
   );
 
-  const changeHover = (width) => {
+  const changeHover = (wnWidth, scWidth) => {
     let btns = document.getElementsByClassName("btn");
     btns = [...btns];
-    if (width <= 620) {
+    if (wnWidth <= 620 || scWidth <= 620) {
       btns.forEach((el) => {
         el.classList.remove("btn-hover");
       });
@@ -30,7 +30,7 @@ const Buttons = ({ color, fncColor }) => {
   };
 
   useEffect(() => {
-    changeHover(window.innerWidth);
+    changeHover(window.innerWidth, screen.width);
   }, []);
 
   return (
@@ -48,9 +48,6 @@ const Buttons = ({ color, fncColor }) => {
         className="btn btn-quote btn-hover"
         id="new-quote"
         onClick={fncColor}
-        onTouchEnd={() => {
-          btnUp();
-        }}
       >
         New quote
       </button>

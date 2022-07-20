@@ -1,3 +1,8 @@
+:root{
+    --color-one: #000;
+    --color-two: #fff;
+}
+
 #quote-box {
     background: #ffffff;
     height: auto;
@@ -20,12 +25,114 @@
 
     &#text{
         font-size: 28px;
+        width: 470px;
     }
 
     &#author {
         font-size: 16px;
         text-align: end;
     }
+}
+
+.ref {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &-text{
+        color: white;
+        margin-top: 10px;
+        font-family: 'Raleway', sans-serif;
+    }
+
+    &-link{
+        position: relative;
+        box-sizing: border-box;
+        border: #fff 1px solid;
+        margin-top: 10px;
+        width: 180px;
+        height: 40px;
+        border-radius: 60px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        background: var(--color-one);
+        transition: 2s;
+        z-index: 1;
+
+        ion-icon {
+            color: #fff;
+            font-size: 1.75em;
+            position: relative;
+            top: 5px;
+            left: 16px;
+            transition: 2s;
+        }
+
+        span {
+            position: absolute;
+        }
+
+        .title {
+            color: #fff;
+            font-family: 'Raleway', sans-serif;
+            font-weight: bold;
+            position: relative;
+            top: 10px;
+            left: 55px;
+            font-size: 15px;
+            transition: 2s;
+        }
+    }
+
+    &-link-hover{
+        width: 60px;
+        height: 60px;
+        background: #fff;
+        transition: 0.5s;
+
+        &:hover {
+            width: 180px;
+            background-color: transparent;
+
+            &::before {
+                opacity: 1;
+            }
+
+            ion-icon{
+                color: #fff;
+                transition: 0.5s;
+            }
+
+            .title{
+                font-size: 16px;
+            }
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 1px solid white;
+            border-radius: 60px;
+            background: linear-gradient(45deg, var(--color-one), var(--color-two));
+            opacity: 0;
+            transition: 0.5s;
+        }
+
+        ion-icon {
+            color: var(--color-one);
+            transform: scale(1.2);
+            top: 16px;
+        }
+
+        .title {
+            top: 22px;
+            font-size: 0px;
+            transition: 0.5s;
+        }
+    }
+}
+
+a {
+    text-decoration: none;
 }
 
 @media (max-width: 620px){
@@ -41,11 +148,11 @@
 
         &#text{
             font-size: 18px;
+            width: calc(86vw - 10%);
         }
 
         &#author {
             font-size: 12px;
         }
-
     }
 }
